@@ -4,12 +4,16 @@
     <form action="/login" method="POST">
         <input type="text" name="email" placeholder="email" required>
         <input type="password" name="password" placeholder="Password" required>
+        <!-- <input type="hidden" name="csrf_token" value="{{ @SESSION.csrf }}"> -->
         <button type="submit">Login</button>
     </form>
-<p>
-    <check if = "{{ @error == 'ER'}}">
-        <true><p>Invalid username or password!</p></true>
-    </check>
-</p>
+    <p>Not registered?
+        <a href="/signup">Create an account</a>
+        </p>
+    <p>
+        <check if = "{{ @error }}">
+            <true><p>{{ @error }}</p></true>
+        </check>
+    </p>
 </div>
 <include href="{{('app/views/footer.html')}}" />

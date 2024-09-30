@@ -12,9 +12,17 @@ class UserController {
     }
 
     public function login() {
+        // $this->f3->set('SESSION.csrf', bin2hex(random_bytes(32)));
         if ($this->f3->exists('POST.email') && $this->f3->exists('POST.password')) {
             $email = $this->f3->get('POST.email');
             $password = $this->f3->get('POST.password');
+
+            // $submittedToken = $this->f3->get('POST.csrf_token');
+            // $storedToken = $this->f3->get('SESSION.csrf');
+            // if ($submittedToken !== $storedToken) {
+            //     $this->f3->set('error', 'Invalid CSRF token');
+            //     $this->f3->reroute('/login');
+            // }
 
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -32,15 +40,28 @@ class UserController {
                 }
             }
         }
+
+        if (!$this->f3->exists('error')) {
+            $this->f3->set('error', '');
+        }
+
         $this->f3->set('title', 'Login');
         echo \Template::instance()->render('app/views/login.html');
     }
 
     public function signup() {
+        // $this->f3->set('SESSION.csrf', bin2hex(random_bytes(32)));
         if ($this->f3->exists('POST.email')) {
             $name = $this->f3->get('POST.name');
             $email = $this->f3->get('POST.email');
             $password = $this->f3->get('POST.password');
+
+            // $submittedToken = $this->f3->get('POST.csrf_token');
+            // $storedToken = $this->f3->get('SESSION.csrf');
+            // if ($submittedToken !== $storedToken) {
+            //     $this->f3->set('error', 'Invalid CSRF token');
+            //     $this->f3->reroute('/signup');
+            // }
 
             if (empty($name) || empty($email) || empty($password)) {
                 $this->f3->set('error', 'All fields are required');
@@ -53,6 +74,12 @@ class UserController {
                 $this->f3->reroute('/login');
             }
         }
+
+        if (!$this->f3->exists('error')) {
+            $this->f3->set('error', '');
+        }
+
+
         $this->f3->set('title', 'Sign Up');
         echo \Template::instance()->render('app/views/signup.html');
     }

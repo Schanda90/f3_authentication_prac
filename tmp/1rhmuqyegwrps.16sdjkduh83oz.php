@@ -17,13 +17,13 @@
             padding: 10px;
             text-align: center;
         }
-        a {
+        .content {
             color: white;
             text-decoration: none;
             padding: 5px 10px;
             border-radius: 3px;
         }
-        a:hover {
+        .content:hover {
             background: #0056b3;
         }
     </style>
@@ -32,8 +32,8 @@
 <header>
     <h1>My Application</h1>
     <nav>
-        <a href="./login">Login</a>
-        <a href="./signup">Signup</a>
-        <a href="./dashboard">Dashboard</a>
+        <a class="content" href="./login">Login</a>
+        <a class="content" href="./signup">Signup</a>
+        <a class="content" href="./dashboard">Dashboard</a>
     </nav>
 </header>

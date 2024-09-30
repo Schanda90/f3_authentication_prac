@@ -10,17 +10,12 @@ $db = new \DB\SQL('mysql:host=localhost;port=3306;dbname=f3loginDB', 'root', '')
 
 // $f3->set('SESSION', true);
 
-$f3->set('error', '');
+// $f3->set('error', '');
 $f3->set('year', '2024');
 
 
 $f3->set('header', \Template::instance()->render('app/views/header.html'));
 $f3->set('footer', \Template::instance()->render('app/views/footer.html'));
-
-
-
-
-
 
 
 $f3->set('AUTOLOAD', 'app/');

@@ -5,8 +5,15 @@
         <input type="text" name="name" placeholder="name" required>
         <input type="text" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
+        <!-- <input type="hidden" name="csrf_token" value="{{ @SESSION.csrf}}"> -->
         <button type="submit">Signup</button>
     </form>
+
+    <p>
+        <check if = "{{ @error }}">
+            <true><p>{{ @error }}</p></true>
+        </check>
+    </p>
 </div>
 <br/>
 <include href="{{('app/views/footer.html')}}" />
