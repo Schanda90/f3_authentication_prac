@@ -65,7 +65,7 @@ class UserController {
         $this->f3->set('title', 'Dashboard');
         $userName = $this->f3->get('SESSION.user');
         echo $userName. ' '. var_dump($userName);
-        echo \Template::instance()->render('app/views/dashboard.php');
+        echo \Template::instance()->render('app/views/dashboard.html');
     }
 
     public function logout() {
